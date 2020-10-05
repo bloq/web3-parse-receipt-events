@@ -28,5 +28,5 @@ jobs:
         on:
           tags: true
         provider: script
-        script: echo "Publishing with OTP $NPM_OTP" && npm publish --otp "$NPM_OTP"
+        script: npm publish --otp "$NPM_OTP"
         skip_cleanup: true
