@@ -1,0 +1,32 @@
+os: linux
+dist: bionic
+
+language: node_js
+node_js:
+  - '12'
+  - '14'
+  - '10'
+
+jobs:
+  include:
+    - stage: Lint
+
+      script: npm run lint -- --quiet
+
+    - stage: NPM release
+
+      if: tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+
+
+      script: skip
+
+      before_deploy:
+        - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+        - npm i --global otp-cli
+        - export NPM_OTP=$(otp-cli totp generate -k "$NPM_OTP_SECRET")
+
+      deploy:
+        on:
+          tags: true
+        provider: script
+        script: echo "Publishing with OTP $NPM_OTP" && npm publish --otp "$NPM_OTP"
+        skip_cleanup: true

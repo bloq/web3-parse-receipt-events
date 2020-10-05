@@ -1,0 +1,48 @@
+{
+  "name": "web3-parse-receipt-events",
+  "version": "1.0.0",
+  "description": "Parse Web3 receipt events from specific contracts",
+  "keywords": [
+    "contracts",
+    "eth",
+    "ethereum",
+    "events",
+    "parse",
+    "receipt",
+    "web3"
+  ],
+  "license": "MIT",
+  "author": "Gabriel Montes <gabriel@bloq.com>",
+  "files": [
+    "src"
+  ],
+  "main": "src/index.js",
+  "repository": "bloq/web3-parse-receipt-events",
+  "scripts": {
+    "check:deps": "dependency-check . --no-dev",
+    "check:outdated": "npm-check --ignore husky",
+    "doc": "jsdoc2md --heading-depth 3 ${npm_package_main}",
+    "coverage": "nyc npm run test",
+    "lint": "eslint --cache .",
+    "prepublishOnly": "tag-matches",
+    "test": "DEBUG=web3-parse-receipt-events mocha"
+  },
+  "dependencies": {
+    "debug": "^4.2.0",
+    "web3-eth-abi": "^1.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "check-tag-matches": "^1.0.0",
+    "dependency-check": "^4.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-bloq": "^2.1.0",
+    "eslint-plugin-jsdoc": "^30.6.3",
+    "eslint-plugin-mocha": "^8.0.0",
+    "husky": "^4.0.1",
+    "jsdoc-to-markdown": "^6.0.1",
+    "mocha": "^8.1.3",
+    "npm-check": "^5.9.0",
+    "nyc": "^15.0.0"
+  }
+}

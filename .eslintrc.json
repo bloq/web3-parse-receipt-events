@@ -1,0 +1,10 @@
+{
+  "extends": ["bloq"],
+  "overrides": [
+    {
+      "files": ["*.spec.js"],
+      "extends": ["bloq/mocha"]
+    }
+  ],
+  "root": true
+}
