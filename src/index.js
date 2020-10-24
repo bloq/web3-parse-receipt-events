@@ -37,7 +37,7 @@ function parseReceiptEvents(abi, address, receipt) {
       delete log.data
       delete log.topics
 
-      const eventNumber = Number.parseInt(log.transactionLogIndex.substr(2), 16)
+      const eventNumber = log.logIndex
       receipt.events[eventNumber] = log
     })
 
