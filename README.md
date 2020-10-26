@@ -1,4 +1,4 @@
-# package-name
+# web3-parse-receipt-events
 
 [![Build Status](https://travis-ci.com/bloq/web3-parse-receipt-events.svg?branch=master)](https://travis-ci.com/bloq/web3-parse-receipt-events)
 [![Code Style](https://img.shields.io/badge/code%20style-bloq-0063a6.svg)](https://github.com/bloq/eslint-config-bloq)
