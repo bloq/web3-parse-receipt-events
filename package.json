@@ -1,6 +1,6 @@
 {
   "name": "web3-parse-receipt-events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse Web3 receipt events from specific contracts",
   "keywords": [
     "contracts",
