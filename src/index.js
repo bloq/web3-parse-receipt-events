@@ -50,7 +50,8 @@ function parseReceiptEvents(abi, address, receipt) {
   Object.keys(receipt.events).forEach(function (n) {
     const event = receipt.events[n]
 
-    if (!sameAddress(event.address, address) || event.signature) {
+    if (web3Utils.toChecksumAddress(event.address) 
+        !== web3Utils.toChecksumAddress(address) || event.signature) {
       return
     }
 
@@ -97,17 +98,6 @@ function parseReceiptEvents(abi, address, receipt) {
   })
 
   return receipt
-}
-
-function sameAddress(left, right) {
-  if(!web3Utils.isAddress(left) || !web3Utils.isAddress(right)){
-    return false
-  }
-
-  left = left.startsWith('0x') ? left.substring(2): left
-  right = right.startsWith('0x') ? right.substring(2): right
-
-  return left.toLowerCase() === right.toLowerCase()
 }
 
 module.exports = parseReceiptEvents
